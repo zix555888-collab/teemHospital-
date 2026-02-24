@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تعرف على مستشفى الشفاء - تاريخنا، رؤيتنا، رسالتنا وقيمنا">
+    <title>من نحن | Al Shifa Hospital</title>
+
+    <!-- ========== Font Awesome للأيقونات ========== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* ===== Reset وإعدادات عامة ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== شريط التنقل (مطابق للصفحة الرئيسية) ===== */
+        header {
+            background: linear-gradient(90deg, #0a4f70 0%, #0d5e84 100%);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #c9a05e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, #f0e6d2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ffd700;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::before {
+            transform: translateX(0);
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+        }
+
+        nav ul li a.active {
+            background: #ffd700;
+            color: #0a4f70;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* ===== قسم البطل (Hero) المصغر ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a4f70 0%, #1a6b94 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        /* ===== الحاوية الرئيسية ===== */
+        .about-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 30px;
+            flex: 1;
+        }
+
+        /* ===== قسم البطاقة التعريفية ===== */
+        .about-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 160, 94, 0.3);
+        }
+
+        .about-card::before {
+            content: '⛨';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            font-size: 200px;
+            opacity: 0.05;
+            color: #0a4f70;
+            transform: rotate(15deg);
+        }
+
+        .about-card h2 {
+            color: #0a4f70;
+            font-size: 36px;
+            margin-bottom: 30px;
+            border-right: 5px solid #c9a05e;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .about-card h2 i {
+            color: #c9a05e;
+            margin-left: 15px;
+        }
+
+        .about-card p {
+            color: #444;
+            line-height: 1.9;
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-highlight {
+            background: linear-gradient(135deg, #f8f4e9 0%, #fff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border-right: 4px solid #c9a05e;
+            margin: 30px 0;
+            font-size: 20px;
+            color: #0a4f70;
+            font-weight: 500;
+            box-shadow: 0 10px 20px rgba(201, 160, 94, 0.1);
+        }
+
+        /* ===== شبكة الإحصائيات ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #0a4f70 0%, #1a6b94 100%);
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 15px 30px rgba(10, 79, 112, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(10, 79, 112, 0.4);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== شبكة القيم ===== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(201, 160, 94, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(201, 160, 94, 0.2);
+            border-color: #c9a05e;
+        }
+
+        .value-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #0a4f70 0%, #1a6b94 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #ffd700;
+            font-size: 40px;
+            box-shadow: 0 10px 20px rgba(10, 79, 112, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #c9a05e 0%, #b38b4a 100%);
+            color: #0a4f70;
+        }
+
+        .value-card h3 {
+            color: #0a4f70;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ===== قسم الإدارة ===== */
+        .leadership-section {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            margin-top: 60px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .leader-card {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: linear-gradient(135deg, #f8f4e9 0%, #fff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 160, 94, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateX(-10px);
+            box-shadow: 0 15px 30px rgba(201, 160, 94, 0.2);
+        }
+
+        .leader-img {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0a4f70 0%, #1a6b94 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 40px;
+            border: 4px solid #c9a05e;
+        }
+
+        .leader-info h3 {
+            color: #0a4f70;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .leader-title {
+            color: #c9a05e;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .leader-bio {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== تذييل الصفحة (مطابق) ===== */
+        footer {
+            background: linear-gradient(90deg, #022c43 0%, #0a4f70 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
+            border-top: 3px solid #c9a05e;
+            position: relative;
+        }
+
+        footer p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        /* ===== تصميم متجاوب ===== */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .page-hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-card {
+                padding: 30px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .leader-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== شريط التنقل ========== -->
+    <header>
+        <div class="logo">Al Shifa Hospital</div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="departments.html"><i class="fas fa-stethoscope"></i> الأقسام</a></li>
+                <li><a href="doctors.html"><i class="fas fa-user-md"></i> الأطباء</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-hospital"></i> من نحن</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========== قسم البطل ========== -->
+    <section class="page-hero">
+        <h1>من نحن</h1>
+        <p>رؤيتنا واضحة.. تقديم الأفضل في الرعاية الصحية</p>
+    </section>
+
+    <!-- ========== المحتوى الرئيسي ========== -->
+    <div class="about-container">
+
+        <!-- بطاقة التعريف -->
+        <div class="about-card">
+            <h2><i class="fas fa-history"></i> قصتنا</h2>
+            <p>تأسس مستشفى الشفاء عام 1995 على يد نخبة من أشهر الأطباء في المنطقة، وكان حلمهم أن يكون هناك صرح طبي يضاهي أكبر المستشفيات العالمية في الشرق الأوسط. بدأنا بعيادة صغيرة تضم 5 أطباء فقط، واليوم نحن مستشفى متكامل بمساحة 50,000 متر مربع نخدم أكثر من 500,000 مريض سنوياً.</p>
+            
+            <div class="about-highlight">
+                <i class="fas fa-quote-right" style="float: right; font-size: 30px; color: #c9a05e; margin-right: 15px;"></i>
+                على مدار 30 عاماً، ظل شعارنا "صحتك تهمنا" هو الدافع لتقديم أفضل الخدمات الطبية بمعايير عالمية وكادر بشري متميز.
+            </div>
+
+            <p>نفخر اليوم بأننا أحد أكبر المستشفيات الخاصة في المنطقة، مجهزون بأحدث التقنيات الطبية، ونضم فريقاً من أكثر من 300 طبيب واستشاري في مختلف التخصصات، إضافة إلى 800 ممرض وممرضة على أعلى مستوى من الكفاءة.</p>
+        </div>
+
+        <!-- الإحصائيات -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">عاماً من العطاء</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">طبيب واستشاري</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">800+</div>
+                <div class="stat-label">طاقم تمريض</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500k+</div>
+                <div class="stat-label">مريض سنوياً</div>
+            </div>
+        </div>
+
+        <!-- الرؤية والرسالة -->
+        <div class="about-card">
+            <h2><i class="fas fa-eye"></i> رؤيتنا</h2>
+            <p>أن نكون الخيار الأول في الرعاية الصحية على مستوى الشرق الأوسط، من خلال تقديم خدمات طبية متكاملة بمعايير عالمية، والمساهمة الفعالة في تطوير القطاع الصحي في المنطقة.</p>
+
+            <h2 style="margin-top: 40px;"><i class="fas fa-bullseye"></i> رسالتنا</h2>
+            <p>تقديم رعاية صحية آمنة ومتكاملة تركز على المريض، باستخدام أحدث التقنيات الطبية، وكوادر بشرية متميزة، مع الالتزام بأعلى معايير الجودة والسلامة، وبحث علمي مستمر يواكب التطورات العالمية.</p>
+        </div>
+
+        <!-- قيمنا -->
+        <div class="about-card">
+            <h2><i class="fas fa-gem"></i> قيمنا</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-heart"></i></div>
+                    <h3>الشفافية</h3>
+                    <p>نؤمن بأهمية التواصل الواضح والصادق مع مرضانا وذويهم، وشرح كل التفاصيل الطبية بدقة وأمانة.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>الاحترام</h3>
+                    <p>نعامل كل مريض بكرامة واحترام، ونقدر خصوصيته وثقافته ومعتقداته.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-star"></i></div>
+                    <h3>التميز</h3>
+                    <p>نسعى دائماً للأفضل، ونتبنى أحدث المعايير الطبية العالمية لنضمن لمرضانا أفضل خدمة.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>العمل الجماعي</h3>
+                    <p>نعمل كفريق واحد متكامل، حيث الطبيب والممرض والإداري كلهم شركاء في رحلة علاج المريض.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>السلامة</h3>
+                    <p>السلامة أولاً... نطبق أعلى معايير مكافحة العدوى وسلامة المرضى في كل إجراءاتنا.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-flask"></i></div>
+                    <h3>الابتكار</h3>
+                    <p>نستثمر في البحث العلمي والتقنيات الحديثة لنكون دائماً في طليعة التطور الطبي.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- الإدارة العليا -->
+        <div class="leadership-section">
+            <h2 style="color: #0a4f70; font-size: 36px; margin-bottom: 20px; text-align: center;">
+                <i class="fas fa-crown" style="color: #c9a05e;"></i> الإدارة العليا
+            </h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-user-tie"></i></div>
+                    <div class="leader-info">
+                        <h3>د. أحمد الناصر</h3>
+                        <div class="leader-title">المدير العام</div>
+                        <p class="leader-bio">أكثر من 25 عاماً من الخبرة في الإدارة الصحية، حاصل على الزمالة من الكلية الملكية بلندن.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-user-md"></i></div>
+                    <div class="leader-info">
+                        <h3>د. ليلى الحسيني</h3>
+                        <div class="leader-title">مديرة الخدمات الطبية</div>
+                        <p class="leader-bio">استشارية جراحة عامة، حاصلة على البورد الأمريكي، تشرف على تطوير البرامج العلاجية.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-user-nurse"></i></div>
+                    <div class="leader-info">
+                        <h3>سارة المنصور</h3>
+                        <div class="leader-title">مديرة التمريض</div>
+                        <p class="leader-bio">خبرة 20 سنة في التمريض السريري والإداري، حاصلة على ماجستير إدارة التمريض.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-chart-line"></i></div>
+                    <div class="leader-info">
+                        <h3>م. خالد العبدالله</h3>
+                        <div class="leader-title">المدير التنفيذي</div>
+                        <p class="leader-bio">خبير في إدارة المشاريع الصحية والتخطيط الاستراتيجي، ماجستير إدارة أعمال.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شهادة الاعتماد -->
+        <div class="about-card" style="text-align: center; margin-top: 40px;">
+            <i class="fas fa-certificate" style="font-size: 70px; color: #c9a05e; margin-bottom: 20px;"></i>
+            <h2>معتمدون دولياً</h2>
+            <p style="max-width: 800px; margin: 20px auto;">نفخر بحصولنا على اعتماد اللجنة الدولية المشتركة (JCI) لسبع سنوات متتالية، كأول مستشفى خاص في المنطقة يحصل على هذا التميز. كما حصلنا على جائزة الشيخ حمدان بن راشد للعلوم الطبية.</p>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
+                <i class="fas fa-medal" style="font-size: 40px; color: #0a4f70;"></i>
+                <i class="fas fa-award" style="font-size: 40px; color: #0a4f70;"></i>
+                <i class="fas fa-trophy" style="font-size: 40px; color: #c9a05e;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== التذييل ========== -->
+    <footer>
+        <p>© <span id="current-year"></span> Al Shifa Hospital - جميع الحقوق محفوظة</p>
+        <p style="margin-top: 10px; font-size: 14px; opacity: 0.7;">نحن نؤمن بأن الصحة هي الثروة الحقيقية</p>
+    </footer>
+
+    <script>
+        // تحديث السنة تلقائياً
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
